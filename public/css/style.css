@@ -1,0 +1,81 @@
+body
+{
+	font-family: sans-serif;
+}
+ul li
+{
+	display: inline;
+	list-style: none;
+}
+.container 
+{
+  display: flex;
+  align-items: stretch;
+  background-color: #f1f1f1;
+}
+.child 
+{
+  flex-grow: 5;
+  max-width: 50%;
+}
+.child > div
+{
+	border:2px solid tomato;
+	display: inline-block;
+	margin:2px;
+	min-height: 40px;
+	min-width: 70px;
+	background-color: #00BFFF;
+	border-radius: 1em;
+	padding: 5px 6px;
+}
+.child > div:hover
+{
+	box-shadow: 8px 8px 20px #999;
+}
+.child > div a
+{
+	display: block;
+	width:100%;
+	height: 100%;
+	text-decoration: none;
+	font-size: 0.5em;
+	font-weight: 600;
+	color:#CCFFFF;
+	text-align: center;
+}
+.child > div a img
+{
+	margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+}
+.selects
+{
+	text-align: center;
+	font-size: 0.6em;
+}
+select
+{
+	max-width: 150px;
+}
+.selects span
+{
+	font-weight: 600;
+	color:#CCFFFF;
+}
+.selects div 
+{
+	margin: 0 0 5px 0; 
+}
+.selects button
+{
+	border-radius: 5px;
+}
+.highlight
+{
+	background: lime;
+}

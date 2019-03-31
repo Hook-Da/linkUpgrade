@@ -1,6 +1,8 @@
 <?php 
+require_once 'mainModel.php';
 class Links extends mainModel
 {
+	static $table = 'links';
 	public static function all()
 	{
 		$links = parent::all();
@@ -25,5 +27,9 @@ class Links extends mainModel
 			}
 		}
 		return $newLinks;
+	}
+	public static function delete($id)
+	{
+		return parent::delete(['link'=>$id]);
 	}
 }

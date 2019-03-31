@@ -1,12 +1,12 @@
 <?php 
 class Database{
 	private static $_instance = null;
-	public $_pdo;
+	public static $_pdo;
 	private function __construct()
 	{
 		try
 		{
-			$this->_pdo = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME,DB_USER,DB_PASS);
+			self::$_pdo = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME,DB_USER,DB_PASS);
 		}
 		catch(PDOexception $e)
 		{

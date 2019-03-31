@@ -11,22 +11,31 @@ class Bootstrap implements BootInter
 				//$controller->index();
 				return false;
 			}
-			$file = 'controllers/'.$urlArr[0].'.php';
-			if(file_exists($file))
+			$file = 'controllers/'.$urlArr[0].'_controller.php';
+			try
 			{
-				require_once $file;
+				if(file_exists($file))
+				{
+					require_once $file;
+				}
+				else
+				{
+					require_once 'errors/error.php';
+					$error = new customErrors('Нет такого файла или такая страница отсутствует - '.$file);
+					//$error->index();
+					throw new Exception('Нет такого файла или такая страница отсутствует - '.$file, 1);
+					
+					return false;
+				}
 			}
-			else
+			catch(Exception $e)
 			{
-				require_once 'errors/error.php';
-				$error = new customErrors('Нет такого файла или такая страница отсутствует - '.$file);
-				$error->index();
-				return false;
+				echo $e->getMessage();
 			}
 			$controller = new $urlArr[0];
-			$controller->loadModel($urlArr[0]);
+			//	$controller->loadModel($urlArr[0]);
 			if(isset($urlArr[2]))
-			{
+			{echo $urlArr[2];die;
 				$controller->{$urlArr[1]}($urlArr[2]);
 
 			}else{
